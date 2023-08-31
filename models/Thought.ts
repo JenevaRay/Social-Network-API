@@ -1,4 +1,8 @@
 import { Schema, model } from 'mongoose'
+import * as dayjs from 'dayjs'
+import * as advancedFormat from 'dayjs/plugin/advancedFormat'
+dayjs.extend(advancedFormat)
+
 
 const thoughtSchema = new Schema(
     {
@@ -10,7 +14,18 @@ const thoughtSchema = new Schema(
         },
         createdAt: {
             type: Date,
-            default: Date.now(),
+            get: (date) => dayjs(date).format('MMM Do, YYYY [at] hh:mm a') 
+        },
+        // createdAt: {
+        //     type: Date,
+        //     default: Date.now(),
+        //     // get: function(value) {
+        //     //     return dayjs(value).format('MMM Do, YYYY [at] hh:mm a')
+        //     // }
+        // },
+        userId: {
+            type: Schema.Types.ObjectId,
+            ref: 'user'
         },
         username: {
             type: String,
@@ -37,6 +52,7 @@ const thoughtSchema = new Schema(
             updatedAt: false
         },
         toJSON: {
+            getters: true,
             virtuals: true
         },
         id: false
@@ -52,12 +68,15 @@ const thoughtSchema = new Schema(
 //     next()
 // })
 
+
+
 thoughtSchema.virtual('reactionCount')
     .get(function(){
         return this.reactions.length
     })
 
+// thoughtSchema.get('createdAt')
 
 const Thought = model('thought', thoughtSchema)
 
-export { Thought }
+export { Thought, thoughtSchema }

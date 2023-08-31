@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose'
+import { thoughtSchema } from './Thought'
 
 interface User {
     // _id?: Schema.Types.ObjectId
@@ -23,13 +24,14 @@ const userSchema = new Schema(
             {
                 // type: String,
                 type: Schema.Types.ObjectId,
-                ref: 'User'
+                ref: 'user'
             }
         ],
+        // thoughts: [ thoughtSchema ]
         thoughts: [
             {
                 type: Schema.Types.ObjectId,
-                ref: 'Thought'
+                ref: 'thought'
             }
         ]
     }, {

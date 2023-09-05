@@ -5,11 +5,13 @@ const usernames = [
 
 const thoughts = [
     {
+        'userId': '5edff367a0fcb779aa7b118c',
         'username': 'lernantino',
         'thoughtText': 'Here\'s a cool thought...',
         'reactions': []
     },
     {
+        'userId': '5edff367a0fcb779aa7b118b',
         'username': 'Amiko',
         'thoughtText': 'thoughts are the words of our minds',
         'reactions': []
@@ -18,14 +20,12 @@ const thoughts = [
 
 const users = [
     {
-        // '_id': '5edff367a0fcb779aa7b118c',
         'username': 'Amiko',
         'email': 'amiko@gmail.com',
         'friends': [],
         'thoughts': []
     },
     {
-        // '_id': '5edff358a0fcb779aa7b118b',
         'username': 'lernantino',
         'email': 'lernantino@gmail.com',
         'friends': [

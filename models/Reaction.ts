@@ -1,13 +1,18 @@
 import { Schema, model } from 'mongoose'
 import * as dayjs from 'dayjs'
 import * as advancedFormat from 'dayjs/plugin/advancedFormat'
+import { ObjectId } from 'mongodb'
 dayjs.extend(advancedFormat)
 
-import { reactionSchema } from './Reaction'
 
-const thoughtSchema = new Schema(
+const reactionSchema = new Schema(
     {
-        thoughtText: {
+        reactionId: {
+            type: Schema.Types.ObjectId,
+            required: true,
+            default: new ObjectId()
+        },
+        reactionBody: {
             type: String,
             max: 128,
             required: true
@@ -27,17 +32,6 @@ const thoughtSchema = new Schema(
             type: String,
             required: true
         },
-        reactions: [
-            reactionSchema
-            // {
-            //     []
-
-            //     // type: Schema.Types.ObjectId,
-            //     // ref: 'reaction',
-            //     // localField: 'reactionId',
-            //     // foreignField: '_id'
-            // }
-        ],
     }, {
         timestamps: {
             createdAt: true,
@@ -51,11 +45,6 @@ const thoughtSchema = new Schema(
     }
 )
 
-thoughtSchema.virtual('reactionCount')
-    .get(function(){
-        return this.reactions.length
-    })
+// const Reaction = model('reaction', reactionSchema)
 
-const Thought = model('thought', thoughtSchema)
-
-export { Thought, thoughtSchema }
+export { reactionSchema }

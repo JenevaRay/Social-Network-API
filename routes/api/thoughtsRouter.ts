@@ -8,6 +8,5 @@ thoughtsRouter.route('/').get(getThoughts).post(createThought)
 
 // api/thoughts/:thoughtId
 thoughtsRouter.route('/:thoughtId').get(getThought).put(updateThought).delete(deleteThought)
-// thoughtsRouter.route('/:thoughtId').get().put().delete()
 
 export { thoughtsRouter }

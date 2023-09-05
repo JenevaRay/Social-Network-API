@@ -1,8 +1,12 @@
 import { Router } from 'express'
 const reactionsRouter = Router()
 
-import { 
-    getReactions, createReaction, getReaction, updateReaction, deleteReaction 
+import {
+  getReactions,
+  createReaction,
+  getReaction,
+  updateReaction,
+  deleteReaction
 } from '../../controllers/reactionsController'
 
 // /api/reactions
@@ -12,6 +16,10 @@ reactionsRouter.route('/').get(getReactions)
 reactionsRouter.route('/thought/:thoughtId').post(createReaction)
 
 // api/reactions/:reactionId
-reactionsRouter.route('/:reactionId').get(getReaction).put(updateReaction).delete(deleteReaction)
+reactionsRouter
+  .route('/:reactionId')
+  .get(getReaction)
+  .put(updateReaction)
+  .delete(deleteReaction)
 
 export { reactionsRouter }

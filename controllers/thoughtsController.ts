@@ -75,9 +75,10 @@ async function deleteThought(req, res) {
 
 async function updateThought(req, res) {
   try {
+    const { thoughtText } = req.body
     const thought = await Thought.findOneAndUpdate(
       { _id: req.params.courseId },
-      { $set: req.body },
+      { $set: { thoughtText: thoughtText } },
       { runValidators: true, new: true }
     )
 

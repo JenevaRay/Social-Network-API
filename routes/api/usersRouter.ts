@@ -11,7 +11,7 @@ import {
   deleteFriend
 } from '../../controllers/usersController'
 
-// /api/thoughts
+// /api/users
 usersRouter.route('/').get(getUsers).post(createUser)
 
 // /api/users/:userId

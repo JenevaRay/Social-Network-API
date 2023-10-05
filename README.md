@@ -14,7 +14,7 @@ This shows an API which utilizes a social network to connect people.
 ## Usage of Production Environment
 - `npm run start`
 
-[![Video of software in use.](Tooltip)](https://drive.google.com/file/d/1J9khW8JzqnhuTwj7K4qup7Ve1M96FhRv/view?usp=drive_link)
+[![Video of software in use.](./Tooltip.png)](https://drive.google.com/file/d/1J9khW8JzqnhuTwj7K4qup7Ve1M96FhRv/view?usp=drive_link)
 
 [![Video of software in use.](https://drive.google.com/file/d/1E8ZZG61G3SWgCJjiKte4rkqAzsEhktRL/view?usp=drive_link)](https://drive.google.com/file/d/1E8ZZG61G3SWgCJjiKte4rkqAzsEhktRL/view?usp=drive_link)
 ## License

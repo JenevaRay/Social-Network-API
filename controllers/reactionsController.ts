@@ -28,14 +28,15 @@ async function createReaction(req, res) {
   try {
     const thought = await Thought.findOne({ _id: req.params.thoughtId })
     const user = await User.findOne({ username: req.body.username })
-    if (user && thought) {
-      console.log({ ...req.body, userId: user._id.toString() })
+    const reaction = req.body.reactionBody
+    if (user && thought && reaction) {
       thought.reactions.push({ ...req.body, userId: user._id.toString() })
       thought.save()
       res.json(thought)
     } else {
       if (!user) res.status(500).json({ message: 'User not found!' })
       if (!thought) res.status(500).json({ message: 'Thought not found!' })
+      if (!reaction) res.status(500).json({ message: 'reactionBody not found!' })
     }
   } catch (err) {
     res.status(500).json(err)

@@ -76,13 +76,13 @@ async function deleteThought(req, res) {
 async function updateThought(req, res) {
   try {
     const thought = await Thought.findOneAndUpdate(
-      { _id: req.params.courseId },
+      { _id: req.params.thoughtId },
       { $set: req.body },
       { runValidators: true, new: true }
     )
 
     if (!thought) {
-      return res.status(404).json({ message: 'No course with this id!' })
+      return res.status(404).json({ message: 'No thought with this id!' })
     }
 
     res.json(thought)
